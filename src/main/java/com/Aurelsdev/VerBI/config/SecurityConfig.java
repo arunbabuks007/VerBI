@@ -38,8 +38,8 @@ public class SecurityConfig {
                         .requestMatchers("/user/**").hasAnyAuthority("USER")
                         .requestMatchers("/adminuser/**").hasAnyAuthority("ADMIN", "USER")
                         .anyRequest().authenticated())
-                .oauth2Login(oauth2 ->
-			            oauth2.defaultSuccessUrl("http://localhost:5173",true))
+//                .oauth2Login(oauth2 ->
+//			            oauth2.defaultSuccessUrl("http://localhost:5173",true))
                 .sessionManagement(manager->manager.sessionCreationPolicy(SessionCreationPolicy.IF_REQUIRED))
                 .authenticationProvider(authenticationProvider()).addFilterBefore(
                         jwtAuthFilter, UsernamePasswordAuthenticationFilter.class
